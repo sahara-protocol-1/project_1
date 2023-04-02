@@ -1,0 +1,5 @@
+#помещаем этот файл в c:\xampp\htdocs для единой точки входа, чтобы запросы шли только через него. Туда же кидаем проект.
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ /public/index.php [QSA,L]
+
