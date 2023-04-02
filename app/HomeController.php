@@ -36,18 +36,11 @@ class HomeController
 //        $auth = new \Delight\Auth\Auth($pdo, $throttling = false, $disableThrottlingExceptions = true); // для отлючения счетчика запросов и выброса исключений
     }
 
-    public function test2()
+    public function test()
     {
 
-
-
-        dd($_SESSION);
-
-//        $sql = "SELECT * FROM test";
-//        $statement = $this->db->prepare($sql);
-//        $statement->execute();
-//        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-//        var_dump($result);
+        Flash::message("тестовое flash сообщение", 'info');
+        echo $this->templates->render('users', ['name'=>'test']);
     }
 
     public function Add_role(){
@@ -64,7 +57,7 @@ class HomeController
         echo $this->templates->render('page_login', ['name' => 'Jonathan']);
     }
 
-    public function make_registration() { // НАДО ЛИ ЗДЕСЬ ЧТО ТО РЕФАКТОРИТЬ ДЛЯ ВЫНОСА ПОД PHP DI?
+    public function make_registration() {
 
 
             try {

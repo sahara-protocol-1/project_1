@@ -44,18 +44,19 @@ $containerBuilder->addDefinitions([ // создаём для builder'a наст�
 $container = $containerBuilder->build(); // создаём объект DI\Container, это делает метод build() учитывая настройки DI\ContainerBuilder()
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r){
-    $r->addRoute('GET', '/test/{selector}/{token}', ['app\HomeController', 'test']);
     $r->addRoute('GET', '/', ['app\HomeController', 'page_login']);
-    $r->addRoute('GET', '/test2', ['app\HomeController', 'test2']); // проверка на маршрутизанию: ( 'правильный метод доступа?', 'верно ли указан адрес?', 'прописан ли у него обработчик get_all_users_handler?')
+    $r->addRoute('GET', '/test', ['app\HomeController', 'test2']); // проверка на маршрутизанию: ( 'правильный метод доступа?', 'верно ли указан адрес?', 'прописан ли у него обработчик get_all_users_handler?')
     $r->addRoute('GET', '/page_register', ['app\HomeController', 'Page_register']);
-    $r->addRoute('GET', '/test3', ['app\HomeController', 'test3']);
+    $r->addRoute('POST', '/make_registration', ['app\HomeController', 'make_registration']);
     $r->addRoute('GET', '/email_verefication/{selector}/{token}', ['app\HomeController', 'email_verefication']);
     $r->addRoute('POST', '/sign_in', ['app\HomeController', 'Sign_in']);
     $r->addRoute('GET', '/users', ['app\HomeController', 'Page_users']);
 
+
     $r->addRoute('GET', '/add_role', ['app\HomeController', 'Add_role']);
 
 //    $r->addRoute('GET', '/about/{amount:\d+}', ['app\controllers\HomeController', 'about']); // проверка на маршрутизанию: ( 'правильный метод доступа?', 'верно ли указан адрес?', 'прописан ли у него обработчик get_all_users_handler?')
+//    $r->addRoute('GET', '/test/{selector}/{token}', ['app\HomeController', 'test']);
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
